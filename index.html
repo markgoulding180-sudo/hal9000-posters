@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier League - Gameweek 32</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #38003c 0%, #00ff85 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .poster {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #38003c 0%, #2d0040 100%);
+            color: #00ff85;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #38003c;
+        }
+        
+        .pl-logo {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        
+        h1 {
+            font-size: 36px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .gw-number {
+            font-size: 48px;
+            display: block;
+            margin: 10px 0;
+        }
+        
+        .date-range {
+            color: #fff;
+            font-size: 16px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .fixtures {
+            padding: 30px;
+            background: #f8f8f8;
+        }
+        
+        .day-group {
+            margin-bottom: 20px;
+        }
+        
+        .day-header {
+            background: #38003c;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .match {
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        
+        .match:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        
+        .teams {
+            flex: 1;
+        }
+        
+        .team-home, .team-away {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .vs {
+            color: #00ff85;
+            background: #38003c;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 700;
+            margin: 0 10px;
+        }
+        
+        .time {
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
+            min-width: 60px;
+            text-align: right;
+        }
+        
+        .highlight {
+            border-left: 4px solid #00ff85;
+        }
+        
+        .footer {
+            background: #38003c;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+        }
+        
+        .footer span {
+            color: #00ff85;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <div class="pl-logo">Premier League</div>
+            <h1>Game Week <span class="gw-number">32</span></h1>
+            <div class="date-range">10-13 April 2026</div>
+        </div>
+        
+        <div class="fixtures">
+            <!-- Friday -->
+            <div class="day-group">
+                <div class="day-header">Friday 10 April</div>
+                <div class="match">
+                    <div class="teams">
+                        <span class="team-home">West Ham United</span>
+                        <span class="vs">VS</span>
+                        <span class="team-away">Wolves</span>
+                    </div>
+                    <div class="time">20:00</div>
+                </div>
+            </div>
+            
+            <!-- Saturday -->
+            <div class="day-group">
+                <div class="day-header">Saturday 11 April</div>
+                <div class="match highlight">
+                    <div class="teams">
+                        <span class="team-home">Arsenal</span>
+                        <span class="vs">VS</span>
+                        <span class="team-away">Bournemouth</span>
+                    </div>
+                    <div class="time">12:30</div>
+                </div>
+                <div class="match">
+                    <div class="teams">
+                        <span class="team-home">Brentford</span>
+                        <span class="vs">VS</span>
+                        <span class="team-away">Everton</span>
+                    </div>
+                    <div class="time">15:00</div>
+                </div>
+                <div class="match">
+                    <div class="teams">
+                        <span class="team-home">Burnley</span>
+                        <span class="vs">VS</span>
+                        <span class="team-away">Brighton</span>
+                    </div>
+                    <div class="time">15:00</div>
+                </div>
+                <div class="match highlight">
+                    <div class="teams">
+                        <span class="team-home">Liverpool</span>
+                        <span class="vs">VS</span>
+                        <span class="team-away">Fulham</span>
+                    </div>
+                    <div class="time">17:30</div>
+                </div>
+            </div>
+            
+            <!-- Sunday -->
+            <div class="day-group">
+                <div class="day-header">Sunday 12 April</div>
+                <div class="match">
+                    <div class="teams">
+                        <span class="team-home">Crystal Palace</span>
+                        <span class="vs">VS</span>
+                        <span class="team-away">Newcastle</span>
+                    </div>
+                    <div class="time">14:00</div>
+                </div>
+                <div class="match">
+                    <div class="teams">
+                        <span class="team-home">Nott'm Forest</span>
+                        <span class="vs">VS</span>
+                        <span class="team-away">Aston Villa</span>
+                    </div>
+                    <div class="time">14:00</div>
+                </div>
+                <div class="match">
+                    <div class="teams">
+                        <span class="team-home">Sunderland</span>
+                        <span class="vs">VS</span>
+                        <span class="team-away">Spurs</span>
+                    </div>
+                    <div class="time">14:00</div>
+                </div>
+                <div class="match highlight">
+                    <div class="teams">
+                        <span class="team-home">Chelsea</span>
+                        <span class="vs">VS</span>
+                        <span class="team-away">Man City</span>
+                    </div>
+                    <div class="time">16:30</div>
+                </div>
+            </div>
+            
+            <!-- Monday -->
+            <div class="day-group">
+                <div class="day-header">Monday 13 April</div>
+                <div class="match highlight">
+                    <div class="teams">
+                        <span class="team-home">Man United</span>
+                        <span class="vs">VS</span>
+                        <span class="team-away">Leeds United</span>
+                    </div>
+                    <div class="time">20:00</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <span>⚽</span> Premier League Gameweek 32 <span>⚽</span>
+        </div>
+    </div>
+</body>
+</html>
