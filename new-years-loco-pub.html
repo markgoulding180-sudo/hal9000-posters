@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year's Eve at The Loco Pub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka+One&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 20px;
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .poster {
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(180deg, #ff006e 0%, #8338ec 50%, #3a86ff 100%);
+            border-radius: 30px;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.5),
+                0 0 100px rgba(255,0,110,0.3),
+                inset 0 -10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .poster::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: sparkle 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translate(0,0); }
+            100% { transform: translate(30px, 30px); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ffd60a 0%, #ffc300 100%);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+            z-index: 1;
+        }
+
+        .year-badge {
+            display: inline-block;
+            background: #ff006e;
+            color: white;
+            font-family: 'Bangers', cursive;
+            font-size: 48px;
+            padding: 10px 30px;
+            border-radius: 20px;
+            transform: rotate(-3deg);
+            text-shadow: 3px 3px 0px #000;
+            box-shadow: 0 8px 0 #000;
+            margin-bottom: 10px;
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: rotate(-3deg) translateY(0); }
+            50% { transform: rotate(-3deg) translateY(-10px); }
+        }
+
+        .nye-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 28px;
+            color: #1a1a2e;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        .content {
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pub-name {
+            font-family: 'Bangers', cursive;
+            font-size: 56px;
+            color: #ffd60a;
+            text-shadow: 
+                4px 4px 0 #000,
+                -2px -2px 0 #ff006e;
+            transform: rotate(2deg);
+            margin-bottom: 20px;
+            animation: shake 0.5s ease infinite;
+            animation-play-state: paused;
+        }
+
+        .pub-name:hover {
+            animation-play-state: running;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(2deg); }
+            25% { transform: rotate(-1deg); }
+            75% { transform: rotate(4deg); }
+        }
+
+        .details {
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            border: 3px dashed rgba(255,255,255,0.3);
+        }
+
+        .date-time {
+            font-family: 'Fredoka One', cursive;
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+        }
+
+        .features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features li {
+            font-size: 20px;
+            color: #ffd60a;
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-weight: bold;
+        }
+
+        .features li::before {
+            content: '🎉';
+            position: absolute;
+            left: 0;
+            font-size: 22px;
+        }
+
+        .features li:nth-child(2)::before { content: '🥂'; }
+        .features li:nth-child(3)::before { content: '🎵'; }
+        .features li:nth-child(4)::before { content: '🎆'; }
+
+        .countdown {
+            background: linear-gradient(135deg, #ff006e, #8338ec);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            color: white;
+            font-family: 'Bangers', cursive;
+            font-size: 22px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .footer-section {
+            background: #1a1a2e;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #06ffa5, #00d4aa);
+            color: #1a1a2e;
+            font-family: 'Bangers', cursive;
+            font-size: 28px;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 
+                0 8px 0 #006b54,
+                0 15px 30px rgba(0,0,0,0.4);
+            transform: translateY(0);
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 12px 0 #006b54,
+                0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(4px);
+            box-shadow: 
+                0 4px 0 #006b54,
+                0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .contact {
+            margin-top: 20px;
+            color: rgba(255,255,255,0.7);
+            font-size: 16px;
+        }
+
+        .contact strong {
+            color: #ffd60a;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffd60a;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        .confetti-piece:nth-child(1) { left: 10%; animation-delay: 0s; background: #ff006e; }
+        .confetti-piece:nth-child(2) { left: 20%; animation-delay: 0.5s; background: #8338ec; }
+        .confetti-piece:nth-child(3) { left: 30%; animation-delay: 1s; background: #06ffa5; }
+        .confetti-piece:nth-child(4) { left: 40%; animation-delay: 1.5s; background: #ffd60a; }
+        .confetti-piece:nth-child(5) { left: 50%; animation-delay: 2s; background: #ff006e; }
+        .confetti-piece:nth-child(6) { left: 60%; animation-delay: 0.3s; background: #3a86ff; }
+        .confetti-piece:nth-child(7) { left: 70%; animation-delay: 0.8s; background: #8338ec; }
+        .confetti-piece:nth-child(8) { left: 80%; animation-delay: 1.3s; background: #ffd60a; }
+        .confetti-piece:nth-child(9) { left: 90%; animation-delay: 1.8s; background: #06ffa5; }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(700px) rotate(720deg); opacity: 0; }
+        }
+
+        .drinks-icon {
+            font-size: 60px;
+            margin: 20px 0;
+            animation: clink 1s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes clink {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        @media (max-width: 480px) {
+            .pub-name { font-size: 42px; }
+            .year-badge { font-size: 40px; }
+            .nye-text { font-size: 22px; }
+            .features li { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="confetti">
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+        </div>
+
+        <div class="header">
+            <div class="year-badge">2026</div>
+            <div class="nye-text">New Year's Eve</div>
+        </div>
+
+        <div class="content">
+            <div class="pub-name">THE LOCO PUB 🍺</div>
+            
+            <div class="drinks-icon">🍾🥂🍾</div>
+
+            <div class="details">
+                <div class="date-time">
+                    December 31st<br>
+                    8:00 PM - Late!
+                </div>
+
+                <ul class="features">
+                    <li>Complimentary Champagne at Midnight</li>
+                    <li>Live DJ & Dance Floor</li>
+                    <li>Fancy Dress Competition</li>
+                    <li>Countdown Fireworks Display</li>
+                </ul>
+            </div>
+
+            <div class="countdown">
+                🎊 Ring in the New Year with us! 🎊
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <a href="#" class="cta-button">Book Your Table!</a>
+            <div class="contact">
+                <strong>📍 The Loco Pub</strong><br>
+                123 High Street, Ashford<br>
+                📞 01234 567890
+            </div>
+        </div>
+    </div>
+</body>
+</html>
