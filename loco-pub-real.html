@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Loco Pub - Beaver Road</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Righteous&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2d1810 0%, #1a0f0a 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: 'Righteous', cursive;
+        }
+
+        .poster {
+            width: 100%;
+            max-width: 500px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        .photo-section {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .pub-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+        }
+
+        .pub-name-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .the {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 24px;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            display: block;
+            margin-bottom: -10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .loco {
+            font-family: 'Bangers', cursive;
+            font-size: 72px;
+            color: #fff;
+            text-shadow: 
+                4px 4px 0 #ff6b35,
+                8px 8px 0 rgba(0,0,0,0.5);
+            letter-spacing: 4px;
+            line-height: 1;
+        }
+
+        .pub {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 32px;
+            color: #ffd700;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.8);
+            letter-spacing: 6px;
+        }
+
+        .content {
+            padding: 30px;
+            background: linear-gradient(180deg, #f8f4f0 0%, #e8e0d8 100%);
+        }
+
+        .address-block {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #ff6b35;
+        }
+
+        .location-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .road-name {
+            font-family: 'Bangers', cursive;
+            font-size: 28px;
+            color: #2d1810;
+            letter-spacing: 2px;
+        }
+
+        .town {
+            font-size: 18px;
+            color: #666;
+            margin-top: 5px;
+            font-family: 'Righteous', cursive;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .feature {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .feature:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .feature-text {
+            font-size: 14px;
+            color: #2d1810;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hours-block {
+            background: linear-gradient(135deg, #2d1810, #4a2c1a);
+            color: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .hours-title {
+            font-family: 'Bangers', cursive;
+            font-size: 24px;
+            color: #ffd700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hours {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #ff6b35;
+            font-size: 24px;
+            font-family: 'Bangers', cursive;
+        }
+
+        .footer {
+            background: #ff6b35;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #2d1810;
+            font-family: 'Bangers', cursive;
+            font-size: 24px;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 0 #d45a2a, 0 15px 30px rgba(0,0,0,0.3);
+            transition: all 0.2s;
+            letter-spacing: 2px;
+        }
+
+        .cta-button:active {
+            transform: translateY(8px);
+            box-shadow: 0 0 0 #d45a2a, 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .phone {
+            margin-top: 20px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .est-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,107,53,0.95);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 14px;
+            z-index: 3;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            border: 2px solid #fff;
+        }
+
+        @media (max-width: 480px) {
+            .loco { font-size: 56px; }
+            .pub { font-size: 26px; }
+            .features { grid-template-columns: 1fr; }
+            .photo-section { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="photo-section">
+            <div class="est-badge">🍺 Your Local 🍺</div>
+            <img src="loco-pub-interior.jpg" alt="The Loco Pub Interior" class="pub-photo">
+            <div class="photo-overlay"></div>
+            <div class="pub-name-overlay">
+                <span class="the">The</span>
+                <span class="loco">LOCO</span>
+                <span class="pub">PUB</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="address-block">
+                <span class="location-icon">📍</span>
+                <div class="road-name">Beaver Road</div>
+                <div class="town">Ashford, Kent</div>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">🍺</span>
+                    <span class="feature-text">Great Beers on Tap</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📺</span>
+                    <span class="feature-text">Live Sports</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎵</span>
+                    <span class="feature-text">Music & Events</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎯</span>
+                    <span class="feature-text">Darts & Games</span>
+                </div>
+            </div>
+
+            <div class="hours-block">
+                <div class="hours-title">🕐 OPENING HOURS 🕐</div>
+                <div class="hours">
+                    Mon - Thu: 12:00 - 23:00<br>
+                    Fri - Sat: <span class="highlight">12:00 - Late</span><br>
+                    Sunday: 12:00 - 22:30
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="#" class="cta-button">📞 Call Us Now</a>
+            <div class="phone">01234 567890</div>
+        </div>
+    </div>
+</body>
+</html>
